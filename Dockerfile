@@ -19,6 +19,10 @@ FROM tomcat
 
 COPY --from=maven_builder /app/target/ABCtechnologies-1.0.war /usr/local/tomcat/webapps
 
-EXPOSE 8008
+RUN mv /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps/
 
-CMD ["catalina.sh", "run"]
+CMD ["catalina.sh","run"]
+
+#EXPOSE 8008
+
+#CMD ["catalina.sh", "run"]
